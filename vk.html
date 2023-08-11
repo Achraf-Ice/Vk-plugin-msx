@@ -13,6 +13,8 @@
             function MyPlayer() {
                 this.init = function() {
                     //Init player
+                    var iframe = document.createElement('iframe');
+                    iframe.setAttribute("style","height:100%;width:100%;");
                 };
                 this.ready = function() {
                     //Player is ready
@@ -78,6 +80,7 @@
         </script>
     </head>
     <body>
-        <iframe src="https://vk.com/video_ext.php?oid=803088444&id=456239469&hash=3cbe878123159ca3" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <div id="player"></div>
+        <iframe src="https://vk.com/video_ext.php?oid=803088444&id=456239469" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
     </body>
 </html>
