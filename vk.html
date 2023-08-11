@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vk Plugin</title>
+        <style type="text/css">           
+            h1 {
+                font-family: sans-serif;
+                color: white;
+            }      
+        </style>
+        <script type="text/javascript" src="//msx.benzac.de/js/tvx-plugin.min.js"></script>
+        <script type="text/javascript">
+            function MyPlayer() {
+                this.init = function() {
+                    //Init player
+                };
+                this.ready = function() {
+                    //Player is ready
+                    TVXVideoPlugin.startPlayback();//This will call the play function and will start the update process
+                };
+                this.play = function() {
+                    //Play
+                };
+                this.pause = function() {
+                    //Pause
+                };
+                this.stop = function() {
+                    //Stop
+                };
+                this.getDuration = function() {
+                    //Get duration in seconds
+                    return 60;
+                };
+                this.getPosition = function() {
+                    //Get position in seconds
+                    return 0;
+                };
+                this.setPosition = function(position) {
+                    //Set position in seconds
+                    if (position == 60) {
+                        TVXVideoPlugin.stopPlayback();//Generally, this will unload the iframe
+                    }
+                };
+                this.setVolume = function(volume) {
+                    //Set volume (0 .. 100)
+                };
+                this.getVolume = function() {
+                    //Get volume (0 .. 100)
+                    return 100;
+                };
+                this.setMuted = function(muted) {
+                    //Set muted
+                };
+                this.isMuted = function() {
+                    //Get muted
+                    return false;
+                };
+                this.getSpeed = function() {
+                    //Get speed (0.125 .. 8.0)
+                    return 1;
+                };
+                this.setSpeed = function(speed) {
+                    //Set speed (0.125 .. 8.0)
+                };
+                this.getUpdateData = function() {
+                    //Get update data (this will be called each second)
+                    return {
+                        position: this.getPosition(),
+                        duration: this.getDuration(),
+                        speed: this.getSpeed()
+                    };
+                };
+            }
+            TVXPluginTools.onReady(function() {
+                TVXVideoPlugin.setupPlayer(new MyPlayer());
+                TVXVideoPlugin.init();
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Vk Plugin</h1>
+        <iframe src="https://vk.com/video_ext.php?oid=803088444&id=456239469&hash=3cbe878123159ca3" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </body>
+</html>
